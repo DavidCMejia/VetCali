@@ -1,0 +1,20 @@
+import { Outlet } from "react-router";
+import Sidebar from "./Sidebar";
+import Header from "./Header";
+import { AuthProvider } from "../context/AuthContext";
+
+export default function Root() {
+  return (
+    <AuthProvider>
+      <div className="flex h-screen bg-slate-50">
+        <Sidebar />
+        <div className="flex flex-col flex-1 overflow-hidden">
+          <Header />
+          <main className="flex-1 overflow-y-auto p-6">
+            <Outlet />
+          </main>
+        </div>
+      </div>
+    </AuthProvider>
+  );
+}
